@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Configurações action bar
         getSupportActionBar().setElevation(0);
+        getSupportActionBar().setTitle("Aprendda Inglês");
 
    smartTabLayout = findViewById(R.id.smartTabLayout);
    viewPager = findViewById(R.id.viewPager);
