@@ -14,7 +14,6 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private SmartTabLayout smartTabLayout;
     private ViewPager viewPager;
 
@@ -23,24 +22,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Configurações action bar
+        //Configuracoes action bar
         getSupportActionBar().setElevation(0);
-        getSupportActionBar().setTitle("Aprendda Inglês");
+        getSupportActionBar().setTitle("Aprenda Inglês");
 
-   smartTabLayout = findViewById(R.id.smartTabLayout);
-   viewPager = findViewById(R.id.viewPager);
+        smartTabLayout = findViewById(R.id.smartTabLayout);
+        viewPager = findViewById(R.id.viewPager);
 
-        FragmentPagerItemAdapter  adapter = new FragmentPagerItemAdapter(
+        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
                 FragmentPagerItems.with(this)
-                .add("Bichos", BichosFragment.class)
-                .add("Numeros", NumerosFragment.class)
-                .add("Vogais", VogaisFragment.class)
-                .create()
+                        .add("Bichos", BichosFragment.class)
+                        .add("Números", NumerosFragment.class)
+                        .add("Vogais", VogaisFragment.class)
+                        .create()
         );
 
-        viewPager.setAdapter(adapter);
-        smartTabLayout.setViewPager(viewPager);
+        viewPager.setAdapter( adapter );
+        smartTabLayout.setViewPager( viewPager );
 
     }
 }
