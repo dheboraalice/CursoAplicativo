@@ -1,4 +1,4 @@
-#Wed Nov 10 09:34:07 VET 2021
+#Wed Dec 15 10:09:09 VET 2021
 base.0=C\:\\Users\\dsilva\\AndroidStudioProjects\\AlcoolouGasolina\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.0=classes.dex
 renamed.0=classes.dex
+path.0=classes.dex
