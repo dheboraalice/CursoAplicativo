@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             /*bancoDados.execSQL("UPDATE pessoas SET idade = 20 " +
                     "WHERE nome = 'Dhebora' ");*/
 
-            //bancoDados.execSQL("DELETE FROM pessoas WHERE id = 2 "); // apagar tabela pelo ID 
+            //bancoDados.execSQL("DELETE FROM pessoas WHERE id = 2 "); // apagar tabela por ID
 
             //Recuperar pessoas
             /*String consulta = "SELECT nome, idade FROM pessoas " +
