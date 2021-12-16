@@ -19,12 +19,19 @@ public class MainActivity extends AppCompatActivity {
             SQLiteDatabase bancoDados = openOrCreateDatabase("app", MODE_PRIVATE, null);
 
             //Criar tabela
-            bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas (nome VARCHAR, idade INT(3))");
+            bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas ( id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, idade INT(3))");
+           // bancoDados.execSQL("DROP TABLE pessoas "); //APAGAR TABELA
 
             //Inserir dados
-           // bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Mariana', 18) ");
-           // bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Dhebora', 25) ");
-           // bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Pedro', 50) ");
+            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Mariana', 18) ");
+            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Dhebora', 25) ");
+            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES('Pedro', 50) ");
+
+            //Update da tabela
+            /*bancoDados.execSQL("UPDATE pessoas SET idade = 20 " +
+                    "WHERE nome = 'Dhebora' ");*/
+
+            //bancoDados.execSQL("DELETE FROM pessoas WHERE id = 2 "); // apagar tabela pelo ID 
 
             //Recuperar pessoas
             /*String consulta = "SELECT nome, idade FROM pessoas " +
@@ -44,13 +51,17 @@ public class MainActivity extends AppCompatActivity {
                     "WHERE nome LIKE '%"+ filtro + "%' ";    */               // LIKE = como  %= qualquer coisa a esquerda
 
 
-            String consulta = "SELECT nome, idade FROM pessoas " +
-                    "WHERE 1=1 ORDER BY idade ASC LIMIT 3";          // ORDERBY= ordenar // ASC = do maior para menos A/Z(POR NOME)  DESC = do menor para maior Z/A(POR NOME)
+            /*String consulta = "SELECT nome, idade FROM pessoas " +
+                    "WHERE 1=1 ORDER BY idade ASC LIMIT 3";  */        // ORDERBY= ordenar // ASC = do maior para menos A/Z(POR NOME)  DESC = do menor para maior Z/A(POR NOME)
             //LIMIT = limite
+
+            String consulta = "SELECT id, nome, idade FROM pessoas " +
+                    "WHERE 1=1 ";
 
             Cursor cursor = bancoDados.rawQuery(consulta, null);
 
             //Indices da tabela
+            int indiceId = cursor.getColumnIndex("id");
             int indiceNome = cursor.getColumnIndex("nome");
             int indiceIdade = cursor.getColumnIndex("idade");
 
@@ -59,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
                 String nome = cursor.getString(indiceNome);
                 String idade = cursor.getString(indiceIdade);
-                Log.i("RESULTADO - nome ", nome + " / idade: " + idade );
+                String id = cursor.getString(indiceId);
+                Log.i("RESULTADO - id ", id + " / nome: " + nome + " / idade: " + idade );
 
                 cursor.moveToNext();
             }
