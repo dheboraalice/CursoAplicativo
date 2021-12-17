@@ -53,7 +53,14 @@ public class MainActivity extends AppCompatActivity {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Log.i("clique", "onItemClick");
+                                //recuperando tarefa para edicao
+                                Tarefa tarefaSelecionada = listaTarefas.get(position);
+
+                                //enviar tarefa para tela adicionar tarefa
+                                Intent intent = new Intent(MainActivity.this, AdicionarTarefaActivity.class);
+                                intent.putExtra("tarefaSelecionada", tarefaSelecionada);
+
+                                startActivity(intent);
                             }
 
                             @Override
