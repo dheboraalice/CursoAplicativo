@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         listaTarefas.add(tarefa1);
 
         Tarefa tarefa2 = new Tarefa();
-        tarefa1.setNomeTarefa("Ir a feira");
+        tarefa2.setNomeTarefa("Ir a feira");
         listaTarefas.add(tarefa2);
 
         //Exibi listqa de tarefas no Recyclerview
@@ -73,9 +73,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayout.VERTICAL));
-        //recyclerView.setAdapter();
+        recyclerView.setAdapter(tarefaAdapter);
     }
 
+    @Override
+    protected void onStart() {
+        carregarListaTarefas();
+        super.onStart();
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
